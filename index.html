@@ -1,177 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Haodong Li | Researcher & Aspiring Intern</title>
+  <meta name="description" content="Haodong Li — AI & Medical Imaging researcher focusing on diffusion models and CT reconstruction." />
   <style>
-    /* Basic reset and styling */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      line-height: 1.6;
-      color: #333;
+    :root{
+      --bg:#f7f9fc;
+      --text:#1f2937;
+      --muted:#606b7a;
+      --brand:#007ACC;
+      --brand-600:#0364b3;
+      --card:#ffffff;
+      --ring:0 0 0 3px rgba(0,122,204,.2);
+      --radius:12px;
+      --shadow:0 10px 30px rgba(0,0,0,.06);
+      --maxw: 980px;
     }
-    header {
-      background: #007ACC;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b1220;
+        --text:#e5e7eb;
+        --muted:#9aa4b2;
+        --brand:#49a2ff;
+        --brand-600:#2b8ff0;
+        --card:#0f172a;
+        --shadow:0 10px 30px rgba(0,0,0,.5);
+      }
     }
-    nav {
-      background: #333;
-      display: flex;
-      justify-content: center;
-      padding: 0.5rem;
+
+    /* Base */
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:var(--bg); color:var(--text); line-height:1.65;
     }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Layout helpers */
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+
+    /* Header / Nav */
+    header{
+      background:var(--brand); color:#fff; padding:2rem 0; text-align:center;
     }
-    section {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
+    header h1{margin:.1rem 0 0; font-size:clamp(28px, 4.2vw, 40px)}
+    header p{margin:.4rem 0 0; opacity:.95}
+
+    .site-nav{
+      position:sticky; top:0; z-index:50;
+      background: rgba(0,0,0,.82);
+      backdrop-filter:saturate(150%) blur(6px);
     }
-    .section-title {
-      border-bottom: 2px solid #007ACC;
-      display: inline-block;
-      margin-bottom: 1rem;
-      padding-bottom: 0.3rem;
+    .nav-inner{
+      display:flex; align-items:center; justify-content:center; gap:10px; padding:.55rem 0;
+      overflow:auto;
     }
-    .card {
-      background: #fff;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    .nav-inner a{
+      color:#fff; font-weight:700; padding:.5rem .75rem; border-radius:10px; white-space:nowrap;
     }
-    footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
+    .nav-inner a:hover{background:rgba(255,255,255,.08); text-decoration:none}
+    .nav-inner a:focus-visible{outline:none; box-shadow:var(--ring); background:rgba(255,255,255,.08)}
+
+    section{padding:2rem 0}
+    .section-title{
+      font-size:1.5rem; font-weight:800; margin:0 0 1rem; display:inline-block; position:relative;
     }
-    a {
-      color: #007ACC;
+    .section-title::after{
+      content:""; position:absolute; left:0; bottom:-6px; width:72px; height:3px; background:var(--brand);
+      border-radius:2px;
+    }
+
+    /* Cards */
+    .card{
+      background:var(--card); padding:1.3rem 1.5rem; margin-bottom:1.4rem;
+      border-radius:var(--radius); box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.05);
+    }
+    /* readable line length inside cards */
+    .card p, .card li{max-width:68ch}
+
+    /* Lists inside cards */
+    .card ul{padding-left:1.1rem; margin:.5rem 0}
+    .card li{margin:.45rem 0}
+
+    /* Footer */
+    footer{background:#333; color:#fff; text-align:center; padding:1rem}
+
+    /* Mobile tweaks */
+    @media (max-width:720px){
+      .card{padding:1.05rem 1.1rem}
+    }
+
+    /* Print-friendly */
+    @media print{
+      .site-nav, .skip{display:none}
+      a[href]:after{content:" (" attr(href) ")"; font-weight:normal}
+      .card{box-shadow:none}
+    }
+
+    /* Accessibility: skip link */
+    .skip{
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip:focus{
+      left:16px; top:16px; width:auto; height:auto; padding:.5rem .75rem;
+      background:#fff; color:#000; border-radius:8px; box-shadow:var(--shadow);
     }
   </style>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <header>
-    <h1>Haodong Li</h1>
-    <p>Researcher in AI & Medical Imaging</p>
+    <div class="container">
+      <h1>Haodong Li</h1>
+      <p>Researcher in Electrical & Computer Engineering • AI & Medical Imaging Enthusiast</p>
+    </div>
   </header>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#research">Research</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <div class="card">
-      <p>Hello! I am Haodong Li, a dedicated researcher and engineer with a strong background in Electrical and Computer Engineering. My passion lies in advancing artificial intelligence and deep generative models to solve challenging inverse problems in medical imaging and precision healthcare.</p>
-      <p>I strive to merge cutting-edge research with practical applications, making significant contributions in fields such as CT image reconstruction, segmentation of medical images, and the integration of large language models with advanced vision tasks.</p>
+
+  <div class="site-nav" role="navigation" aria-label="Primary">
+    <div class="container nav-inner">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
     </div>
-  </section>
-  
-  <section id="education">
-    <h2 class="section-title">Education</h2>
-    <div class="card">
-      <h3>Doctor of Engineering in Electrical Engineering</h3>
-      <p><strong>University of Massachusetts Lowell</strong> (09/2023 - Present)<br>
-      Advisor: Hengyong Yu, FIEEE</p>
-      
-      <h3>Master of Science in Electrical and Computer Engineering</h3>
-      <p><strong>University of Florida</strong> (08/2021 - 08/2023)<br>
-      GPA: 3.76/4.0</p>
-      
-      <h3>Bachelor of Engineering in Electronic and Information Engineering</h3>
-      <p><strong>Xidian University</strong> (09/2017 - 07/2021)<br>
-      GPA: 3.5/4.0<br>
-      Award: Outstanding Learner Scholarship (Top 5%)</p>
-    </div>
-  </section>
-  
-  <section id="research">
-    <h2 class="section-title">Research & Projects</h2>
-    <div class="card">
-      <h3>Research Interests</h3>
-      <p>I focus on probabilistic methods in machine learning and the development of deep generative models to address inverse problems. My research highlights include:</p>
-      <ul>
-        <li>Designing generative models that capture uncertainty and structure in real-world data.</li>
-        <li>Developing efficient diffusion transformers for clinical few-view CT reconstruction.</li>
-        <li>Leveraging large language models for innovative medical AI image applications.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Research Experience</h3>
-      <ul>
-        <li>
-          <strong>Imaging and Informatics Lab, University of Massachusetts Lowell</strong> (09/2023 - Present)<br>
-          • Developing state-of-the-art diffusion models to reconstruct high-quality CT images from limited-angle scans.<br>
-          • Integrating large language models with diffusion models to guide vision tasks using text prompts.
-        </li>
-        <li>
-          <strong>Shao’s Lab, University of Florida</strong> (05/2023 - 08/2023)<br>
-          • Developed an AI model for automatic segmentation of the cardiac chambers on CMR images.<br>
-          • Built a predictive AI model to identify radiomic signatures of cardiac sarcoidosis.
-        </li>
-        <li>
-          <strong>Computer Vision and Sensing Systems (COVISS) Lab, University of Florida</strong> (08/2022 - 05/2023)<br>
-          • Employed unsupervised learning (SimCLR) to enhance transformer-based connectivity across different camera views.<br>
-          • Developed a transformer model for tracking individuals to improve airport safety.
-        </li>
-        <li>
-          <strong>Xidian University</strong> (09/2020 – 06/2021)<br>
-          • Proposed an unpaired training method using coupled-GANs for low-dose CT denoising.
-        </li>
-      </ul>
-    </div>
-  </section>
-  
-  <section id="experience">
-    <h2 class="section-title">Professional Experience</h2>
-    <div class="card">
-      <ul>
-        <li>
-          <strong>UF ABE Robotics Team</strong> (06/2022 - 08/2022)<br>
-          • Led the computer vision segment of the robotics project, extracting 3D point clouds and implementing YOLO for precise detection, culminating in a third-place finish in the ASABE 2022 competition.
-        </li>
-      </ul>
-    </div>
-  </section>
-  
-  <section id="skills">
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="card">
-      <p><strong>Programming:</strong> Python, C, C++, Matlab, VHDL</p>
-      <p><strong>Frameworks:</strong> TensorFlow, PyTorch</p>
-      <p><strong>Software:</strong> Multisim, Quartus, Qt, Adobe Photoshop, 3D Slicer</p>
-      <p><strong>Other:</strong> Linux, Cloud Computing</p>
-    </div>
-  </section>
-  
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="card">
-      <p>Email: <a href="mailto:Haodong_li@uml.edu">Haodong_li@uml.edu</a></p>
-      <p>Phone: +1 3527093462</p>
-      <p>LinkedIn: <a href="#">LinkedIn Profile</a></p>
-      <p>GitHub: <a href="#">GitHub Profile</a></p>
-    </div>
-  </section>
-  
-  <footer>
-    <p>&copy; 2025 Haodong Li. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+  </div>
+
+  <main id="main">
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="card">
+          <p>Hello! I am Haodong Li, a dedicated researcher and engineer with a strong background in Electrical and Computer Engineering. My passion lies in advancing artificial intelligence and deep generative models to solve challenging inverse problems in medical imaging and precision healthcare.</p>
+          <p>I strive to merge cutting-edge research with practical applications, making significant contributions in fields such as CT image reconstruction, segmentation of medical images, and the integration of large language models with advanced vision tasks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="card">
+          <h3>Doctor of Engineering in Electrical Engineering</h3>
+          <p><strong>University of Massachusetts Lowell</strong> (09/2023 – Present)<br>Advisor: Hengyong Yu, FIEEE</p>
+
+          <h3>Master of Science in Electrical and Computer Engineering</h3>
+          <p><strong>University of Florida</strong> (08/2021 – 08/2023)<br>GPA: 3.76/4.0</p>
+
+          <h3>Bachelor of Engineering in Electronic and Information Engineering</h3>
+          <p><strong>Xidian University</strong> (09/2017 – 07/2021)<br>GPA: 3.5/4.0<br>Award: Outstanding Learner Scholarship (Top 5%)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <h2 class="section-title">Research & Projects</h2>
+        <div class="card">
+          <h3>Research Interests</h3>
+          <p>I focus on probabilistic methods in machine learning and the development of deep generative models to address inverse problems. My research highlights include:</p>
+          <ul>
+            <li>Designing generative models that capture uncertainty and structure in real-world data.</li>
+            <li>Developing efficient diffusion transformers for clinical few-view CT reconstruction.</li>
+            <li>Leveraging large language models for innovative medical AI image applications.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Research Experience</h3>
+          <ul>
+            <li><strong>Imaging and Informatics Lab, University of Massachusetts Lowell</strong> (09/2023 – Present)<br>• Developing state-of-the-art diffusion models to reconstruct high-quality CT images from limited-angle scans.<br>• Integrating large language models with diffusion models to guide vision tasks using text prompts.</li>
+            <li><strong>Shao’s Lab, University of Florida</strong> (05/2023 – 08/2023)<br>• Developed an AI model for automatic segmentation of the cardiac chambers on CMR images.<br>• Built a predictive AI model to identify radiomic signatures of cardiac sarcoidosis.</li>
+            <li><strong>Computer Vision and Sensing Systems (COVISS) Lab, University of Florida</strong> (08/2022 – 05/2023)<br>• Employed unsupervised learning (SimCLR) to enhance transformer-based connectivity across different camera views.<br>• Developed a transformer model for tracking individuals to improve airport safety.</li>
+            <li><strong>Xidian University</strong> (09/2020 – 06/2021)<br>• Proposed an unpaired training method using coupled-GANs for low-dose CT denoising.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="card">
+          <ul>
+            <li><strong>
