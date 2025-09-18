@@ -41,16 +41,16 @@
     a{color:var(--brand); text-decoration:none}
     a:hover{text-decoration:underline}
 
-    /* Layout helpers */
     .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
 
-    /* Header / Nav */
+    /* Header */
     header{
       background:var(--brand); color:#fff; padding:2rem 0; text-align:center;
     }
     header h1{margin:.1rem 0 0; font-size:clamp(28px, 4.2vw, 40px)}
     header p{margin:.4rem 0 0; opacity:.95}
 
+    /* Nav */
     .site-nav{
       position:sticky; top:0; z-index:50;
       background: rgba(0,0,0,.82);
@@ -81,29 +81,38 @@
       border-radius:var(--radius); box-shadow:var(--shadow);
       border:1px solid rgba(0,0,0,.05);
     }
-    /* readable line length inside cards */
     .card p, .card li{max-width:68ch}
-
-    /* Lists inside cards */
     .card ul{padding-left:1.1rem; margin:.5rem 0}
     .card li{margin:.45rem 0}
+
+    /* About Me image + flex */
+    .about-flex {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .about-pic {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+    @media (max-width: 720px) {
+      .about-flex {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-pic {
+        margin-bottom: 1rem;
+      }
+    }
 
     /* Footer */
     footer{background:#333; color:#fff; text-align:center; padding:1rem}
 
-    /* Mobile tweaks */
-    @media (max-width:720px){
-      .card{padding:1.05rem 1.1rem}
-    }
-
-    /* Print-friendly */
-    @media print{
-      .site-nav, .skip{display:none}
-      a[href]:after{content:" (" attr(href) ")"; font-weight:normal}
-      .card{box-shadow:none}
-    }
-
-    /* Accessibility: skip link */
+    /* Skip link */
     .skip{
       position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
     }
@@ -135,16 +144,21 @@
   </div>
 
   <main id="main">
+    <!-- About -->
     <section id="about">
       <div class="container">
         <h2 class="section-title">About Me</h2>
-        <div class="card">
-          <p>Hello! I am Haodong Li, a dedicated researcher and engineer with a strong background in Electrical and Computer Engineering. My passion lies in advancing artificial intelligence and deep generative models to solve challenging inverse problems in medical imaging and precision healthcare.</p>
-          <p>I strive to merge cutting-edge research with practical applications, making significant contributions in fields such as CT image reconstruction, segmentation of medical images, and the integration of large language models with advanced vision tasks.</p>
+        <div class="card about-flex">
+          <img src="image.jpg" alt="Haodong Li" class="about-pic" />
+          <div>
+            <p>Hello! I am Haodong Li, a dedicated researcher and engineer with a strong background in Electrical and Computer Engineering. My passion lies in advancing artificial intelligence and deep generative models to solve challenging inverse problems in medical imaging and precision healthcare.</p>
+            <p>I strive to merge cutting-edge research with practical applications, making significant contributions in fields such as CT image reconstruction, segmentation of medical images, and the integration of large language models with advanced vision tasks.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Research -->
     <section id="research">
       <div class="container">
         <h2 class="section-title">Research & Projects</h2>
@@ -169,6 +183,32 @@
       </div>
     </section>
 
+    <!-- Experience -->
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="card">
+          <ul>
+            <li><strong>UF ABE Robotics Team</strong> (06/2022 – 08/2022)<br>• Led the computer vision segment of the robotics project, extracting 3D point clouds and implementing YOLO for precise detection, culminating in a third-place finish in the ASABE 2022 competition.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="card">
+          <p><strong>Programming:</strong> Python, C, C++, Matlab, VHDL</p>
+          <p><strong>Frameworks:</strong> TensorFlow, PyTorch</p>
+          <p><strong>Software:</strong> Multisim, Quartus, Qt, Adobe Photoshop, 3D Slicer</p>
+          <p><strong>Other:</strong> Linux, Cloud Computing</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
     <section id="education">
       <div class="container">
         <h2 class="section-title">Education</h2>
@@ -184,6 +224,30 @@
         </div>
       </div>
     </section>
-              
-    
-      
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="card">
+          <p>Email: <a href="mailto:Haodong_li@uml.edu">Haodong_li@uml.edu</a></p>
+          <p>Phone: +1 (352) 709-3462</p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/your-username/" target="_blank" rel="noopener">LinkedIn Profile</a></p>
+          <p>GitHub: <a href="https://graeme-lee.github.io/haodong.github.io/" target="_blank" rel="noopener">GitHub Profile</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="y"></span> Haodong Li. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.style.scrollBehavior = 'auto';
+    }
+  </script>
+</body>
+</html>
