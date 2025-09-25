@@ -77,19 +77,29 @@
 
     /* Cards */
     .card{
-      background:var(--card); padding:1.3rem 1.5rem; margin-bottom:1.4rem;
+      background:var(--card); padding:1.3rem 1.5rem; margin-bottom:1.2rem;
       border-radius:var(--radius); box-shadow:var(--shadow);
       border:1px solid rgba(0,0,0,.05);
+      width:100%; /* ensure cards span full container width */
     }
-    .card p, .card li{max-width:68ch}
+
+    /* IMPORTANT: remove narrow text columns that caused center whitespace */
+    .card p, .card li{max-width:100%}
+    /* If you still want readable line length, cap at very wide screens only */
+    @media (min-width:1400px){
+      .card p, .card li{max-width:85ch}
+    }
+
     .card ul{padding-left:1.1rem; margin:.5rem 0}
     .card li{margin:.45rem 0}
 
     /* About Me image + flex */
     .about-flex {
       display: flex;
-      align-items: center;
+      align-items: flex-start; /* avoid vertical centering gaps */
+      justify-content: space-between;
       gap: 1.5rem;
+      flex-wrap: wrap; /* allow wrap on narrow screens */
     }
     .about-pic {
       width: 180px;
@@ -99,15 +109,15 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       flex-shrink: 0;
     }
+    .about-text{flex:1 1 320px; min-width:280px}
+
     @media (max-width: 720px) {
-      .about-flex {
-        flex-direction: column;
-        text-align: center;
-      }
-      .about-pic {
-        margin-bottom: 1rem;
-      }
+      .about-flex { flex-direction: column; text-align: left; }
+      .about-pic { margin-bottom: 1rem; }
     }
+
+    /* Optional: consistent vertical rhythm between sections */
+    .stack { display:flex; flex-direction:column; gap:1.2rem }
 
     /* Footer */
     footer{background:#333; color:#fff; text-align:center; padding:1rem}
@@ -150,7 +160,7 @@
         <h2 class="section-title">About Me</h2>
         <div class="card about-flex">
           <img src="image.jpg" alt="Haodong Li" class="about-pic" />
-          <div>
+          <div class="about-text">
             <p>Hello! I am Haodong Li, a dedicated researcher and engineer with a strong background in Electrical and Computer Engineering. My passion lies in advancing artificial intelligence and deep generative models to solve challenging inverse problems in medical imaging and precision healthcare.</p>
             <p>I strive to merge cutting-edge research with practical applications, making significant contributions in fields such as CT image reconstruction, segmentation of medical images, and the integration of large language models with advanced vision tasks.</p>
           </div>
@@ -160,7 +170,7 @@
 
     <!-- Research -->
     <section id="research">
-      <div class="container">
+      <div class="container stack">
         <h2 class="section-title">Research & Projects</h2>
         <div class="card">
           <h3>Research Interests</h3>
