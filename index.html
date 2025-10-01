@@ -83,11 +83,12 @@
       width:100%; /* ensure cards span full container width */
     }
 
-    /* IMPORTANT: remove narrow text columns that caused center whitespace */
-    .card p, .card li{max-width:100%}
-    /* If you still want readable line length, cap at very wide screens only */
-    @media (min-width:1400px){
-      .card p, .card li{max-width:85ch}
+    /* Remove text width limit to avoid blank space */
+    .card p, .card li, .card ul, .card ol { max-width: none !important; }
+
+    /* Optionally limit only on very wide screens for readability */
+    @media (min-width:1600px){
+      .card p, .card li { max-width:95ch; }
     }
 
     .card ul{padding-left:1.1rem; margin:.5rem 0}
@@ -96,10 +97,10 @@
     /* About Me image + flex */
     .about-flex {
       display: flex;
-      align-items: flex-start; /* avoid vertical centering gaps */
+      align-items: flex-start;
       justify-content: space-between;
       gap: 1.5rem;
-      flex-wrap: wrap; /* allow wrap on narrow screens */
+      flex-wrap: wrap;
     }
     .about-pic {
       width: 180px;
@@ -116,7 +117,6 @@
       .about-pic { margin-bottom: 1rem; }
     }
 
-    /* Optional: consistent vertical rhythm between sections */
     .stack { display:flex; flex-direction:column; gap:1.2rem }
 
     /* Footer */
@@ -130,6 +130,13 @@
       left:16px; top:16px; width:auto; height:auto; padding:.5rem .75rem;
       background:#fff; color:#000; border-radius:8px; box-shadow:var(--shadow);
     }
+      /* Improve list readability and wrapping */
+    .card ul{ padding-left:1.2rem; margin:.5rem 0; }
+    .card li{ margin:.4rem 0; }
+    .card li > ul{ margin:.35rem 0 .6rem 1.1rem; }
+
+    /* Avoid awkward hyphen/autowrap behavior */
+    .card p, .card li{ hyphens: manual; word-break: normal; overflow-wrap: anywhere; }
   </style>
 </head>
 <body>
@@ -184,10 +191,33 @@
         <div class="card">
           <h3>Research Experience</h3>
           <ul>
-            <li><strong>Imaging and Informatics Lab, University of Massachusetts Lowell</strong> (09/2023 – Present)<br>• Developing state-of-the-art diffusion models to reconstruct high-quality CT images from limited-angle scans.<br>• Integrating large language models with diffusion models to guide vision tasks using text prompts.</li>
-            <li><strong>Shao’s Lab, University of Florida</strong> (05/2023 – 08/2023)<br>• Developed an AI model for automatic segmentation of the cardiac chambers on CMR images.<br>• Built a predictive AI model to identify radiomic signatures of cardiac sarcoidosis.</li>
-            <li><strong>Computer Vision and Sensing Systems (COVISS) Lab, University of Florida</strong> (08/2022 – 05/2023)<br>• Employed unsupervised learning (SimCLR) to enhance transformer-based connectivity across different camera views.<br>• Developed a transformer model for tracking individuals to improve airport safety.</li>
-            <li><strong>Xidian University</strong> (09/2020 – 06/2021)<br>• Proposed an unpaired training method using coupled-GANs for low-dose CT denoising.</li>
+            <li>
+              <strong>Imaging and Informatics Lab, University of Massachusetts Lowell</strong> (09/2023 – Present)
+              <ul>
+                <li>Developing state-of-the-art diffusion models to reconstruct high-quality CT images from limited-angle scans.</li>
+                <li>Integrating large language models with diffusion models to guide vision tasks using text prompts.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Shao’s Lab, University of Florida</strong> (05/2023 – 08/2023)
+              <ul>
+                <li>Developed an AI model for automatic segmentation of the cardiac chambers on CMR images.</li>
+                <li>Built a predictive AI model to identify radiomic signatures of cardiac sarcoidosis.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Computer Vision and Sensing Systems (COVISS) Lab, University of Florida</strong> (08/2022 – 05/2023)
+              <ul>
+                <li>Employed unsupervised learning (SimCLR) to enhance transformer-based connectivity across different camera views.</li>
+                <li>Developed a transformer model for tracking individuals to improve airport safety.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Xidian University</strong> (09/2020 – 06/2021)
+              <ul>
+                <li>Proposed an unpaired training method using coupled-GANs for low-dose CT denoising.</li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
