@@ -1,1 +1,1 @@
-https://graeme-lee.github.io/haodong.github.io/
+https://graeme-lee.github.io/haodong/
