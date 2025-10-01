@@ -184,11 +184,30 @@
           <p>I focus on probabilistic methods in machine learning and the development of deep generative models to address inverse problems. My research highlights include:</p>
           <ul>
             <li>Designing generative models that capture uncertainty and structure in real-world data.</li>
-            <li>Developing efficient diffusion transformers for clinical few-view CT reconstruction.</li>
+            <li>Authoring a journal paper about combining diffusion and transformer for CT image generation for IEEE TMI.</li>
             <li>Leveraging large language models for innovative medical AI image applications.</li>
           </ul>
         </div>
-        <div class="card">
+        
+        <div class="card project">
+          <h3>CDPIR: Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT</h3>
+          <p class="muted">First‑author journal paper — under review at <em>IEEE Transactions on Medical Imaging (TMI)</em></p>
+          <ul class="meta">
+            <li><strong>Authors:</strong> Haodong Li, Shuo Han, Haiyang Mao, Yu Shi, Changsheng Fang, Jianjia Zhang, Weiwen Wu, Hengyong Yu</li>
+            <li><strong>Keywords:</strong> Sparse‑view CT, diffusion transformer (SiT), classifier‑free guidance, ASD‑POCS, OOD robustness</li>
+          </ul>
+          <p><strong>What we propose.</strong> A domain‑adaptive reconstruction framework that marries diffusion‑transformer priors with physics‑based iterative updates. The model disentangles <em>domain‑invariant</em> priors for anatomy and <em>domain‑specific</em> priors for texture/edges, then alternates denoising with data‑consistency to suppress streak artifacts and preserve details under distribution shifts.</p>
+          <ul>
+            <li><strong>Method:</strong> SiT‑based velocity/score sampling under a unified stochastic interpolant; classifier‑free guidance; residual‑guided alternating solver with improved ASD‑POCS.</li>
+            <li><strong>Datasets:</strong> AAPM Low‑Dose CT, Stanford COCA, XCAT phantom, GE clinical cardiac, and MARS PCCT extremity.</li>
+            <li><strong>Results (highlights):</strong> State‑of‑the‑art OOD performance; +2–3 dB PSNR and up to +0.10 SSIM vs. baselines across OOD tests; +0.07 SSIM on GE clinical cardiac (zero‑shot); about +3.5 dB PSNR and +0.05 SSIM on MARS PCCT; competitive quality with as few as 200 sampling steps.</li>
+          </ul>
+          <div class="actions">
+            <a class="btn" href="https://www.arxiv.org/abs/2509.13576" target="_blank" rel="noopener">View on arXiv</a>
+            <a class="btn btn-secondary" href="#contact">Contact me</a>
+          </div>
+        </div>
+<div class="card">
           <h3>Research Experience</h3>
           <ul>
             <li>
@@ -196,7 +215,6 @@
               <ul>
                 <li>Developing state-of-the-art diffusion models to reconstruct high-quality CT images from limited-angle scans.</li>
                 <li>Integrating large language models with diffusion models to guide vision tasks using text prompts.</li>
-                <li>Authoring a journal paper about combining diffusion and transformer for CT image generation to IEEE TMI.</li>
               </ul>
             </li>
             <li>
