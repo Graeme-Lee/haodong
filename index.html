@@ -6,306 +6,85 @@
   <title>Haodong Li | Medical AI Researcher</title>
   <meta name="description" content="Haodong Li — Medical AI researcher working on multimodal representation learning, generative AI, medical image understanding, and trustworthy AI." />
   <style>
-    :root{
-      --bg:#f7f9fc;
-      --text:#1f2937;
-      --muted:#606b7a;
-      --brand:#007ACC;
-      --brand-600:#0364b3;
-      --card:#ffffff;
-      --ring:0 0 0 3px rgba(0,122,204,.2);
-      --radius:12px;
-      --shadow:0 10px 30px rgba(0,0,0,.06);
-      --maxw: 980px;
-    }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#0b1220;
-        --text:#e5e7eb;
-        --muted:#9aa4b2;
-        --brand:#49a2ff;
-        --brand-600:#2b8ff0;
-        --card:#0f172a;
-        --shadow:0 10px 30px rgba(0,0,0,.5);
-      }
-    }
-
-    /* Base */
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:var(--bg); color:var(--text); line-height:1.65;
-    }
-    a{color:var(--brand); text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
-
-    /* Header */
-    header{
-      background:var(--brand); color:#fff; padding:2rem 0; text-align:center;
-    }
-    header h1{margin:.1rem 0 0; font-size:clamp(28px, 4.2vw, 40px)}
-    header p{margin:.4rem 0 0; opacity:.95}
-
-    /* Nav */
-    .site-nav{
-      position:sticky; top:0; z-index:50;
-      background: rgba(0,0,0,.82);
-      backdrop-filter:saturate(150%) blur(6px);
-    }
-    .nav-inner{
-      display:flex; align-items:center; justify-content:center; gap:10px; padding:.55rem 0;
-      overflow:auto;
-    }
-    .nav-inner a{
-      color:#fff; font-weight:700; padding:.5rem .75rem; border-radius:10px; white-space:nowrap;
-    }
-    .nav-inner a:hover{background:rgba(255,255,255,.08); text-decoration:none}
-    .nav-inner a:focus-visible{outline:none; box-shadow:var(--ring); background:rgba(255,255,255,.08)}
-
-    section{padding:2rem 0}
-    .section-title{
-      font-size:1.5rem; font-weight:800; margin:0 0 1rem; display:inline-block; position:relative;
-    }
-    .section-title::after{
-      content:""; position:absolute; left:0; bottom:-6px; width:72px; height:3px; background:var(--brand);
-      border-radius:2px;
-    }
-
-    /* Cards */
-    .card{
-      background:var(--card); padding:1.3rem 1.5rem; margin-bottom:1.2rem;
-      border-radius:var(--radius); box-shadow:var(--shadow);
-      border:1px solid rgba(0,0,0,.05);
-      width:100%; /* ensure cards span full container width */
-    }
-
-    /* Remove text width limit to avoid blank space */
-    .card p, .card li, .card ul, .card ol { max-width: none !important; }
-
-    /* Optionally limit only on very wide screens for readability */
-    @media (min-width:1600px){
-      .card p, .card li { max-width:95ch; }
-    }
-
-    .card ul{padding-left:1.1rem; margin:.5rem 0}
-    .card li{margin:.45rem 0}
-
-    /* About Me image + flex */
-    .about-flex {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .about-pic {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      flex-shrink: 0;
-    }
-    .about-text{flex:1 1 320px; min-width:280px}
-
-    @media (max-width: 720px) {
-      .about-flex { flex-direction: column; text-align: left; }
-      .about-pic { margin-bottom: 1rem; }
-    }
-
-    .stack { display:flex; flex-direction:column; gap:1.2rem }
-
-    /* Footer */
-    .hero-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem}
-    .btn{display:inline-block;padding:.55rem .85rem;border-radius:9px;background:var(--brand);color:#fff;font-weight:700}
-    .btn:hover{background:var(--brand-600);text-decoration:none}
-    .btn-secondary{background:transparent;color:var(--brand);border:1px solid var(--brand)}
-    .research-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-    .research-grid .card{margin-bottom:0}
-    .eyebrow{font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--brand)}
-    .tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem}
-    .tag{font-size:.82rem;padding:.2rem .5rem;border-radius:999px;background:rgba(0,122,204,.09);color:var(--brand-600)}
-    .pub{margin-bottom:1rem}
-    .pub-title{font-weight:800}
-    @media(max-width:820px){.research-grid{grid-template-columns:1fr}}
-    footer{background:#333; color:#fff; text-align:center; padding:1rem}
-
-    /* Skip link */
-    .skip{
-      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
-    }
-    .skip:focus{
-      left:16px; top:16px; width:auto; height:auto; padding:.5rem .75rem;
-      background:#fff; color:#000; border-radius:8px; box-shadow:var(--shadow);
-    }
-      /* Improve list readability and wrapping */
-    .card ul{ padding-left:1.2rem; margin:.5rem 0; }
-    .card li{ margin:.4rem 0; }
-    .card li > ul{ margin:.35rem 0 .6rem 1.1rem; }
-
-    /* Avoid awkward hyphen/autowrap behavior */
-    .card p, .card li{ hyphens: manual; word-break: normal; overflow-wrap: anywhere; }
+    :root{--ink:#20242a;--muted:#626a73;--link:#2f6f9f;--line:#e4e7eb;--soft:#f7f8fa;--max:1020px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65}
+    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin:auto;padding:0 28px}
+    header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:20}
+    nav{height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:22px;color:#1d2732}
+    .navlinks{display:flex;gap:24px;font-size:15px}.navlinks a{color:#424951}
+    main{padding:58px 0 72px}
+    .hero{display:grid;grid-template-columns:210px 1fr;gap:46px;align-items:start;padding-bottom:42px;border-bottom:1px solid var(--line)}
+    .portrait{width:190px;height:190px;object-fit:cover;border-radius:4px;display:block;background:var(--soft)}
+    h1,h2,h3{font-family:Georgia,"Times New Roman",serif;color:#172333}
+    h1{font-size:42px;line-height:1.15;margin:0 0 8px}.role{font-size:19px;margin:0 0 5px}.affil{color:var(--muted);margin:0 0 18px}
+    .focus{font-weight:600;margin:0 0 16px}.links{display:flex;gap:14px;flex-wrap:wrap;font-size:15px}
+    section{padding:38px 0;border-bottom:1px solid var(--line)}section:last-child{border-bottom:0}
+    h2{font-size:28px;margin:0 0 18px}h3{font-size:20px;margin:0 0 6px}
+    p{margin:0 0 13px}.lead{font-size:17px;max-width:84ch}
+    .vision{font-family:Georgia,"Times New Roman",serif;font-size:21px;line-height:1.55;color:#26384a;border-left:3px solid #8aa9c2;padding-left:20px;margin:18px 0 0}
+    .interests{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.interest ul{padding-left:19px;margin:8px 0 0}.interest li{margin:5px 0}
+    .project{padding:20px 0;border-top:1px solid var(--line)}.project:first-of-type{border-top:0;padding-top:0}
+    .meta{font-size:14px;color:var(--muted);margin-bottom:7px}.tags{font-size:13px;color:#52616f;margin-top:7px}.actions{margin-top:8px;font-size:14px}.actions a{margin-right:12px;font-weight:600}
+    .pub{padding:15px 0}.pub-title{font-weight:700}.venue{font-style:italic}.badge{font-size:12px;font-weight:700;color:#315d7a;background:#eef5f9;padding:2px 7px;border-radius:3px;margin-left:6px}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:45px}.small{font-size:14px;color:var(--muted)}
+    footer{padding:28px 0 44px;color:var(--muted);font-size:14px;text-align:center}
+    @media(max-width:760px){header{position:static}.navlinks{gap:12px;font-size:13px}.hero{grid-template-columns:1fr;gap:22px}.portrait{width:160px;height:160px}.interests,.two{grid-template-columns:1fr}h1{font-size:36px}.wrap{padding:0 20px}}
   </style>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-
-  <header>
-    <div class="container">
+<header><div class="wrap"><nav><a class="brand" href="#top">Haodong Li</a><div class="navlinks"><a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div></nav></div></header>
+<main id="top"><div class="wrap">
+  <section class="hero" id="about">
+    <img class="portrait" src="image.jpg" alt="Haodong Li" />
+    <div>
       <h1>Haodong Li</h1>
-      <p>Medical AI Researcher • Multimodal Representation Learning • Generative AI</p>
+      <p class="role">Doctoral Candidate in Electrical Engineering</p>
+      <p class="affil">University of Massachusetts Lowell · Advisor: Prof. Hengyong Yu</p>
+      <p class="focus">Medical AI · Multimodal Representation Learning · Generative AI · Medical Image Understanding</p>
+      <p class="lead">I develop AI methods for medical imaging and multimodal patient data. My doctoral research has focused on physics-informed generative AI for CT reconstruction, and my current work is expanding toward multimodal representation learning, 3D vision-language grounding, and trustworthy medical AI for disease understanding and clinical decision support.</p>
+      <div class="links"><a href="https://scholar.google.com/citations?user=HIo-Z3YAAAAJ&h" target="_blank" rel="noopener">Google Scholar</a><a href="https://github.com/Graeme-Lee" target="_blank" rel="noopener">GitHub</a><a href="mailto:haodong_li@uml.edu">Email</a></div>
     </div>
-  </header>
+  </section>
 
-  <div class="site-nav" role="navigation" aria-label="Primary">
-    <div class="container nav-inner">
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#projects">Projects</a>
-      <a href="#publications">Publications</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+  <section>
+    <h2>Research Vision</h2>
+    <p class="vision"><strong>From physical evidence to multimodal patient evidence.</strong> My PhD research asks how generative models can remain grounded in physical measurements for reliable medical image reconstruction. Looking forward, I aim to extend this principle to multimodal medical AI: learning clinically meaningful representations grounded in medical images, clinical text, longitudinal records, and other patient-specific evidence to support trustworthy disease understanding and clinical reasoning.</p>
+  </section>
+
+  <section id="research">
+    <h2>Research Interests</h2>
+    <div class="interests">
+      <div class="interest"><h3>Multimodal Representation Learning</h3><ul><li>Self-supervised and multimodal learning</li><li>Medical foundation models and VLMs</li><li>Imaging + clinical text / EHR</li><li>Longitudinal patient representations</li></ul></div>
+      <div class="interest"><h3>Medical Image Understanding</h3><ul><li>3D vision-language grounding</li><li>Disease and anatomical representations</li><li>Diagnostic and prognostic AI</li><li>Evidence-grounded clinical reasoning</li></ul></div>
+      <div class="interest"><h3>Generative & Physics-Informed Imaging</h3><ul><li>Diffusion and transformer models</li><li>CT reconstruction and inverse problems</li><li>Sparse-view / limited-angle / PCCT</li><li>Measurement-consistent generation</li></ul></div>
     </div>
-  </div>
+  </section>
 
-  <main id="main">
-    <!-- About -->
-    <section id="about">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="card about-flex">
-          <img src="image.jpg" alt="Haodong Li" class="about-pic" />
-          <div class="about-text">
-            <p><strong>I develop AI systems that learn clinically meaningful representations from medical images and multimodal patient data.</strong> My long-term goal is to enable reliable disease understanding, diagnosis, and clinical decision support by integrating imaging with clinical text, longitudinal records, and other patient-specific evidence.</p>
-            <p>My doctoral research has focused on physics-informed generative AI for CT reconstruction. Building on this foundation, my current work expands toward <strong>multimodal representation learning, 3D vision-language grounding, medical foundation models, and trustworthy medical AI</strong>.</p>
-            <div class="hero-actions">
-              <a class="btn" href="#publications">Selected Publications</a>
-              <a class="btn btn-secondary" href="#contact">Contact</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section>
+    <h2>Featured Research</h2>
+    <div class="project"><h3>ReXGroundingCT — Multimodal 3D Medical Image Grounding</h3><div class="meta">Team Lead · 7-person research team · Manuscript in preparation</div><p>Developing and fine-tuning multimodal models that connect free-text radiological findings with localized volumetric evidence in 3D CT, with emphasis on representation learning, image-text grounding, and clinically faithful localization.</p><div class="tags">Multimodal Learning · 3D Medical AI · Vision-Language Grounding · CT</div></div>
+    <div class="project"><h3>Clinical Metadata-Guided Limited-Angle CT</h3><div class="meta">First Author · IEEE Transactions on Medical Imaging · Accepted</div><p>Integrating clinical metadata and LLM-derived semantic representations with diffusion-based CT reconstruction while enforcing physics-based measurement consistency.</p><div class="tags">Clinical Semantics · Diffusion · Limited-Angle CT · Trustworthy AI</div></div>
+    <div class="project"><h3>Multimodal Endoscopy Video-to-Report Generation</h3><div class="meta">Research Assistant · Manuscript in preparation</div><p>Developing hierarchical visual-temporal representations that connect frame-level findings, procedural events, and video-level clinical context for evidence-grounded report generation.</p><div class="tags">Video Understanding · Temporal Representation · Multimodal Generation</div></div>
+    <div class="project"><h3>CDPIR — Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction</h3><div class="meta">First Author · IEEE Transactions on Medical Imaging · 2026</div><p>A physics-informed generative reconstruction framework combining diffusion-transformer priors with measurement-consistent iterative reconstruction for robust sparse-view CT under distribution shifts.</p><div class="actions"><a href="https://www.arxiv.org/abs/2509.13576" target="_blank" rel="noopener">arXiv</a><a href="https://github.com/Graeme-Lee/CDPIR" target="_blank" rel="noopener">Official Code</a></div><div class="tags">Diffusion Transformer · Sparse-View CT · OOD Robustness · Inverse Problems</div></div>
+  </section>
 
-    <!-- Research -->
-    <section id="research">
-      <div class="container stack">
-        <h2 class="section-title">Research & Projects</h2>
-        <div class="card">
-          <div class="eyebrow">Research Vision</div>
-          <h3>From Physical Evidence to Multimodal Patient Evidence</h3>
-          <p>My PhD research asks how generative AI can remain grounded in physical measurements for reliable medical image reconstruction. Looking forward, I aim to extend this principle to multimodal medical AI: learning disease- and patient-centric representations grounded in medical images, clinical text, longitudinal records, and other patient-specific evidence.</p>
-        </div>
-        <div class="research-grid">
-          <div class="card"><h3>Multimodal Representation Learning</h3><p>Learning unified and clinically meaningful representations across medical images, reports, EHR, and longitudinal patient data, with emphasis on self-supervised learning, cross-modal alignment, missing modalities, and generalization.</p><div class="tags"><span class="tag">Representation Learning</span><span class="tag">Multimodal Learning</span><span class="tag">Foundation Models</span></div></div>
-          <div class="card"><h3>Medical Image Understanding & Reasoning</h3><p>Grounding predictions in imaging findings and patient-specific evidence for disease understanding, diagnosis, prognosis, and clinically faithful reasoning.</p><div class="tags"><span class="tag">3D Vision-Language</span><span class="tag">Medical VLMs</span><span class="tag">Trustworthy AI</span></div></div>
-          <div class="card"><h3>Physics-Informed Generative Imaging</h3><p>Integrating diffusion and transformer priors with physical forward models and measurement consistency for reliable CT reconstruction and medical inverse problems.</p><div class="tags"><span class="tag">Diffusion</span><span class="tag">CT Reconstruction</span><span class="tag">Inverse Problems</span></div></div>
-        </div>
+  <section id="publications">
+    <h2>Selected Publications</h2>
+    <div class="pub"><div class="pub-title">Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT <span class="badge">First Author</span></div><div><strong>Haodong Li</strong>, Shuo Han, Haiyang Mao, Yu Shi, Changsheng Fang, Jianjia Zhang, Weiwen Wu, Hengyong Yu</div><div class="venue">IEEE Transactions on Medical Imaging, 2026.</div><div class="actions"><a href="https://www.arxiv.org/abs/2509.13576" target="_blank" rel="noopener">arXiv</a><a href="https://github.com/Graeme-Lee/CDPIR" target="_blank" rel="noopener">Official Code</a></div></div>
+    <div class="pub"><div class="pub-title">Clinical Metadata-Guided Limited-Angle CT <span class="badge">First Author</span></div><div><strong>Haodong Li</strong>, et al.</div><div class="venue">IEEE Transactions on Medical Imaging, 2026. Accepted.</div></div>
+    <div class="pub"><div class="pub-title">Decoupled Posterior Correction for Diffusion-Based Medical Inverse Problems <span class="badge">First Author</span></div><div><strong>Haodong Li</strong>, et al.</div><div class="venue">Manuscript / conference submission, 2026.</div></div>
+  </section>
 
-        <section id="projects" style="padding:0">
-        <h2 class="section-title">Featured Research</h2>
-        <div class="card project"><h3>ReXGroundingCT — Multimodal 3D CT Grounding</h3><p class="muted"><strong>Team Lead</strong> · 7-person research team · Manuscript in preparation</p><p>Developing and fine-tuning multimodal models that connect free-text radiological findings with localized volumetric evidence in 3D CT. The project studies report-to-volume alignment, grounding, segmentation, and clinically faithful evaluation.</p><div class="tags"><span class="tag">3D Medical AI</span><span class="tag">Vision-Language Grounding</span><span class="tag">CT</span></div></div>
-        <div class="card project"><h3>Clinical Metadata-Guided Limited-Angle CT</h3><p class="muted"><strong>IEEE Transactions on Medical Imaging — Accepted</strong></p><p>Integrating clinical metadata and LLM-derived semantic representations with diffusion-based cardiac CT reconstruction while preserving measurement consistency. This work connects patient context with physics-grounded medical imaging.</p><div class="tags"><span class="tag">Multimodal AI</span><span class="tag">LLM Representations</span><span class="tag">Generative Imaging</span></div></div>
-        <div class="card project"><h3>Multimodal Endoscopy Video-to-Report Generation</h3><p class="muted">Research Assistant · Manuscript in preparation</p><p>Developing multimodal generative AI that connects frame-level visual evidence, temporal procedural context, and video-level clinical events for structured and evidence-grounded report generation.</p><div class="tags"><span class="tag">Video Representation</span><span class="tag">Temporal Reasoning</span><span class="tag">Report Generation</span></div></div>
-        <div class="card project">
-          <h3>CDPIR: Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT</h3>
-          <p class="muted">First‑author journal paper — under review at <em>IEEE Transactions on Medical Imaging (TMI)</em></p>
-          <ul class="meta">
-            <li><strong>Authors:</strong> Haodong Li, Shuo Han, Haiyang Mao, Yu Shi, Changsheng Fang, Jianjia Zhang, Weiwen Wu, Hengyong Yu</li>
-            <li><strong>Keywords:</strong> Sparse‑view CT, diffusion transformer (SiT), classifier‑free guidance, ASD‑POCS, OOD robustness</li>
-          </ul>
-          <p><strong>What we propose.</strong> A domain‑adaptive reconstruction framework that marries diffusion‑transformer priors with physics‑based iterative updates. The model disentangles <em>domain‑invariant</em> priors for anatomy and <em>domain‑specific</em> priors for texture/edges, then alternates denoising with data‑consistency to suppress streak artifacts and preserve details under distribution shifts.</p>
-          <ul>
-            <li><strong>Method:</strong> SiT‑based velocity/score sampling under a unified stochastic interpolant; classifier‑free guidance; residual‑guided alternating solver with improved ASD‑POCS.</li>
-            <li><strong>Datasets:</strong> AAPM Low‑Dose CT, Stanford COCA, XCAT phantom, GE clinical cardiac, and MARS PCCT extremity.</li>
-            <li><strong>Results (highlights):</strong> State‑of‑the‑art OOD performance; +2–3 dB PSNR and up to +0.10 SSIM vs. baselines across OOD tests; +0.07 SSIM on GE clinical cardiac (zero‑shot); about +3.5 dB PSNR and +0.05 SSIM on MARS PCCT; competitive quality with as few as 200 sampling steps.</li>
-          </ul>
-          <div class="actions">
-            <a class="btn" href="https://www.arxiv.org/abs/2509.13576" target="_blank" rel="noopener">View on arXiv</a>
-            <a class="btn btn-secondary" href="#contact">Contact me</a>
-          </div>
-        </div>
-        </section>
-<div class="card">
+  <section id="experience">
+    <h2>Experience & Education</h2>
+    <div class="two"><div><h3>Research Experience</h3><p><strong>Imaging and Informatics Lab, UMass Lowell</strong><br><span class="small">Research Assistant · 2023–Present</span></p><p><strong>Intelligent Critical Care Center, University of Florida</strong><br><span class="small">Research Assistant · 2023</span></p><p><strong>COVISS Lab, University of Florida</strong><br><span class="small">Research Assistant · 2022–2023</span></p></div><div><h3>Education</h3><p><strong>University of Massachusetts Lowell</strong><br>Doctoral Candidate (D.Eng.), Electrical Engineering<br><span class="small">Expected May 2027 · Advisor: Prof. Hengyong Yu</span></p><p><strong>University of Florida</strong><br>M.S., Electrical and Computer Engineering · 2023</p><p><strong>Xidian University</strong><br>B.Eng., Electronic and Information Engineering · 2021</p></div></div>
+  </section>
 
-    <section id="publications">
-      <div class="container">
-        <h2 class="section-title">Selected Publications</h2>
-        <div class="card">
-          <div class="pub"><div class="pub-title">Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction</div><div><strong>Haodong Li</strong>, et al. · <em>IEEE Transactions on Medical Imaging</em>, 2026 · <strong>Accepted</strong> · First Author</div><a href="https://www.arxiv.org/abs/2509.13576" target="_blank" rel="noopener">arXiv</a></div>
-          <div class="pub"><div class="pub-title">Clinical Metadata-Guided Limited-Angle CT</div><div><strong>Haodong Li</strong>, et al. · <em>IEEE Transactions on Medical Imaging</em>, 2026 · <strong>Accepted</strong></div><p>Clinical metadata and LLM-derived semantic representations for physics-grounded generative reconstruction.</p></div>
-          <div class="pub"><div class="pub-title">Decoupled Posterior Correction for Diffusion-Based Medical Inverse Problems</div><div><strong>Haodong Li</strong>, et al. · Manuscript under review / in preparation for conference publication</div><p>Decouples generative prior formation from MAP-style posterior correction for CT/MRI inverse problems.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience">
-      <div class="container">
-        <h2 class="section-title">Professional Experience</h2>
-        <div class="card">
-          <ul>
-            <li><strong>UF ABE Robotics Team</strong> (06/2022 – 08/2022)<br>• Led the computer vision segment of the robotics project, extracting 3D point clouds and implementing YOLO for precise detection, culminating in a third-place finish in the ASABE 2022 competition.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills">
-      <div class="container">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="card">
-          <p><strong>AI/ML:</strong> PyTorch, TensorFlow, diffusion models, transformers, self-supervised learning, multimodal learning</p>
-          <p><strong>Medical AI:</strong> CT/MRI, 3D medical imaging, vision-language grounding, medical image analysis, generative imaging</p>
-          <p><strong>Systems:</strong> Python, C/C++, CUDA, Linux, multi-GPU/HPC workflows, 3D Slicer</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education">
-      <div class="container">
-        <h2 class="section-title">Education</h2>
-        <div class="card">
-          <h3>Doctor of Engineering in Electrical Engineering</h3>
-          <p><strong>University of Massachusetts Lowell</strong> (09/2023 – Present)<br>Advisor: Hengyong Yu, FIEEE</p>
-
-          <h3>Master of Science in Electrical and Computer Engineering</h3>
-          <p><strong>University of Florida</strong> (08/2021 – 08/2023)<br>GPA: 3.76/4.0</p>
-
-          <h3>Bachelor of Engineering in Electronic and Information Engineering</h3>
-          <p><strong>Xidian University</strong> (09/2017 – 07/2021)<br>GPA: 3.5/4.0<br>Award: Outstanding Learner Scholarship (Top 5%)</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="card">
-          <p>Email: <a href="mailto:Haodong_li@uml.edu">Haodong_li@uml.edu</a></p>
-          <p>GitHub: <a href="https://github.com/Graeme-Lee" target="_blank" rel="noopener">github.com/Graeme-Lee</a><br>Google Scholar: <a href="https://scholar.google.com/citations?user=HIo-Z3YAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar Profile</a></p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© <span id="y"></span> Haodong Li. All rights reserved.</p>
-  </footer>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.documentElement.style.scrollBehavior = 'auto';
-    }
-  </script>
-</body>
-</html>
+  <section id="contact"><h2>Contact</h2><p>Email: <a href="mailto:haodong_li@uml.edu">haodong_li@uml.edu</a></p><p><a href="https://scholar.google.com/citations?user=HIo-Z3YAAAAJ&h" target="_blank" rel="noopener">Google Scholar</a> · <a href="https://github.com/Graeme-Lee" target="_blank" rel="noopener">GitHub</a></p></section>
+</div></main>
+<footer><div class="wrap">© <span id="year"></span> Haodong Li</div></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body></html>
