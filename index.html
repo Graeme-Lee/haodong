@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Haodong Li | Researcher & Aspiring Intern</title>
-  <meta name="description" content="Haodong Li — AI & Medical Imaging researcher focusing on diffusion models and CT reconstruction." />
+  <title>Haodong Li | Medical AI Researcher</title>
+  <meta name="description" content="Haodong Li — Medical AI researcher working on multimodal representation learning, generative AI, medical image understanding, and trustworthy AI." />
   <style>
     :root{
       --bg:#f7f9fc;
@@ -120,6 +120,18 @@
     .stack { display:flex; flex-direction:column; gap:1.2rem }
 
     /* Footer */
+    .hero-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem}
+    .btn{display:inline-block;padding:.55rem .85rem;border-radius:9px;background:var(--brand);color:#fff;font-weight:700}
+    .btn:hover{background:var(--brand-600);text-decoration:none}
+    .btn-secondary{background:transparent;color:var(--brand);border:1px solid var(--brand)}
+    .research-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+    .research-grid .card{margin-bottom:0}
+    .eyebrow{font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--brand)}
+    .tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem}
+    .tag{font-size:.82rem;padding:.2rem .5rem;border-radius:999px;background:rgba(0,122,204,.09);color:var(--brand-600)}
+    .pub{margin-bottom:1rem}
+    .pub-title{font-weight:800}
+    @media(max-width:820px){.research-grid{grid-template-columns:1fr}}
     footer{background:#333; color:#fff; text-align:center; padding:1rem}
 
     /* Skip link */
@@ -145,17 +157,18 @@
   <header>
     <div class="container">
       <h1>Haodong Li</h1>
-      <p>Researcher in Electrical & Computer Engineering • AI & Medical Imaging Enthusiast</p>
+      <p>Medical AI Researcher • Multimodal Representation Learning • Generative AI</p>
     </div>
   </header>
 
   <div class="site-nav" role="navigation" aria-label="Primary">
     <div class="container nav-inner">
       <a href="#about">About</a>
-      <a href="#education">Education</a>
       <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
       <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -168,8 +181,12 @@
         <div class="card about-flex">
           <img src="image.jpg" alt="Haodong Li" class="about-pic" />
           <div class="about-text">
-            <p>Hello! I am Haodong Li, a dedicated researcher and engineer with a strong background in Electrical and Computer Engineering. My passion lies in advancing artificial intelligence and deep generative models to solve challenging inverse problems in medical imaging and precision healthcare.</p>
-            <p>I strive to merge cutting-edge research with practical applications, making significant contributions in fields such as CT image reconstruction, segmentation of medical images, and the integration of large language models with advanced vision tasks.</p>
+            <p><strong>I develop AI systems that learn clinically meaningful representations from medical images and multimodal patient data.</strong> My long-term goal is to enable reliable disease understanding, diagnosis, and clinical decision support by integrating imaging with clinical text, longitudinal records, and other patient-specific evidence.</p>
+            <p>My doctoral research has focused on physics-informed generative AI for CT reconstruction. Building on this foundation, my current work expands toward <strong>multimodal representation learning, 3D vision-language grounding, medical foundation models, and trustworthy medical AI</strong>.</p>
+            <div class="hero-actions">
+              <a class="btn" href="#publications">Selected Publications</a>
+              <a class="btn btn-secondary" href="#contact">Contact</a>
+            </div>
           </div>
         </div>
       </div>
@@ -180,15 +197,21 @@
       <div class="container stack">
         <h2 class="section-title">Research & Projects</h2>
         <div class="card">
-          <h3>Research Interests</h3>
-          <p>I focus on probabilistic methods in machine learning and the development of deep generative models to address inverse problems. My research highlights include:</p>
-          <ul>
-            <li>Designing generative models that capture uncertainty and structure in real-world data.</li>
-            <li>Developing efficient diffusion transformers for clinical few-view CT reconstruction.</li>
-            <li>Leveraging large language models for innovative medical AI image applications.</li>
-          </ul>
+          <div class="eyebrow">Research Vision</div>
+          <h3>From Physical Evidence to Multimodal Patient Evidence</h3>
+          <p>My PhD research asks how generative AI can remain grounded in physical measurements for reliable medical image reconstruction. Looking forward, I aim to extend this principle to multimodal medical AI: learning disease- and patient-centric representations grounded in medical images, clinical text, longitudinal records, and other patient-specific evidence.</p>
         </div>
-        
+        <div class="research-grid">
+          <div class="card"><h3>Multimodal Representation Learning</h3><p>Learning unified and clinically meaningful representations across medical images, reports, EHR, and longitudinal patient data, with emphasis on self-supervised learning, cross-modal alignment, missing modalities, and generalization.</p><div class="tags"><span class="tag">Representation Learning</span><span class="tag">Multimodal Learning</span><span class="tag">Foundation Models</span></div></div>
+          <div class="card"><h3>Medical Image Understanding & Reasoning</h3><p>Grounding predictions in imaging findings and patient-specific evidence for disease understanding, diagnosis, prognosis, and clinically faithful reasoning.</p><div class="tags"><span class="tag">3D Vision-Language</span><span class="tag">Medical VLMs</span><span class="tag">Trustworthy AI</span></div></div>
+          <div class="card"><h3>Physics-Informed Generative Imaging</h3><p>Integrating diffusion and transformer priors with physical forward models and measurement consistency for reliable CT reconstruction and medical inverse problems.</p><div class="tags"><span class="tag">Diffusion</span><span class="tag">CT Reconstruction</span><span class="tag">Inverse Problems</span></div></div>
+        </div>
+
+        <section id="projects" style="padding:0">
+        <h2 class="section-title">Featured Research</h2>
+        <div class="card project"><h3>ReXGroundingCT — Multimodal 3D CT Grounding</h3><p class="muted"><strong>Team Lead</strong> · 7-person research team · Manuscript in preparation</p><p>Developing and fine-tuning multimodal models that connect free-text radiological findings with localized volumetric evidence in 3D CT. The project studies report-to-volume alignment, grounding, segmentation, and clinically faithful evaluation.</p><div class="tags"><span class="tag">3D Medical AI</span><span class="tag">Vision-Language Grounding</span><span class="tag">CT</span></div></div>
+        <div class="card project"><h3>Clinical Metadata-Guided Limited-Angle CT</h3><p class="muted"><strong>IEEE Transactions on Medical Imaging — Accepted</strong></p><p>Integrating clinical metadata and LLM-derived semantic representations with diffusion-based cardiac CT reconstruction while preserving measurement consistency. This work connects patient context with physics-grounded medical imaging.</p><div class="tags"><span class="tag">Multimodal AI</span><span class="tag">LLM Representations</span><span class="tag">Generative Imaging</span></div></div>
+        <div class="card project"><h3>Multimodal Endoscopy Video-to-Report Generation</h3><p class="muted">Research Assistant · Manuscript in preparation</p><p>Developing multimodal generative AI that connects frame-level visual evidence, temporal procedural context, and video-level clinical events for structured and evidence-grounded report generation.</p><div class="tags"><span class="tag">Video Representation</span><span class="tag">Temporal Reasoning</span><span class="tag">Report Generation</span></div></div>
         <div class="card project">
           <h3>CDPIR: Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT</h3>
           <p class="muted">First‑author journal paper — under review at <em>IEEE Transactions on Medical Imaging (TMI)</em></p>
@@ -207,6 +230,7 @@
             <a class="btn btn-secondary" href="#contact">Contact me</a>
           </div>
         </div>
+        </section>
 <div class="card">
           <h3>Research Experience</h3>
           <ul>
@@ -242,6 +266,17 @@
       </div>
     </section>
 
+    <section id="publications">
+      <div class="container">
+        <h2 class="section-title">Selected Publications</h2>
+        <div class="card">
+          <div class="pub"><div class="pub-title">Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction</div><div><strong>Haodong Li</strong>, et al. · <em>IEEE Transactions on Medical Imaging</em>, 2026 · <strong>Accepted</strong> · First Author</div><a href="https://www.arxiv.org/abs/2509.13576" target="_blank" rel="noopener">arXiv</a></div>
+          <div class="pub"><div class="pub-title">Clinical Metadata-Guided Limited-Angle CT</div><div><strong>Haodong Li</strong>, et al. · <em>IEEE Transactions on Medical Imaging</em>, 2026 · <strong>Accepted</strong></div><p>Clinical metadata and LLM-derived semantic representations for physics-grounded generative reconstruction.</p></div>
+          <div class="pub"><div class="pub-title">Decoupled Posterior Correction for Diffusion-Based Medical Inverse Problems</div><div><strong>Haodong Li</strong>, et al. · Manuscript under review / in preparation for conference publication</div><p>Decouples generative prior formation from MAP-style posterior correction for CT/MRI inverse problems.</p></div>
+        </div>
+      </div>
+    </section>
+
     <!-- Experience -->
     <section id="experience">
       <div class="container">
@@ -259,10 +294,9 @@
       <div class="container">
         <h2 class="section-title">Technical Skills</h2>
         <div class="card">
-          <p><strong>Programming:</strong> Python, C, C++, Matlab, VHDL</p>
-          <p><strong>Frameworks:</strong> TensorFlow, PyTorch</p>
-          <p><strong>Software:</strong> Multisim, Quartus, Qt, Adobe Photoshop, 3D Slicer</p>
-          <p><strong>Other:</strong> Linux, Cloud Computing</p>
+          <p><strong>AI/ML:</strong> PyTorch, TensorFlow, diffusion models, transformers, self-supervised learning, multimodal learning</p>
+          <p><strong>Medical AI:</strong> CT/MRI, 3D medical imaging, vision-language grounding, medical image analysis, generative imaging</p>
+          <p><strong>Systems:</strong> Python, C/C++, CUDA, Linux, multi-GPU/HPC workflows, 3D Slicer</p>
         </div>
       </div>
     </section>
@@ -290,8 +324,8 @@
         <h2 class="section-title">Contact</h2>
         <div class="card">
           <p>Email: <a href="mailto:Haodong_li@uml.edu">Haodong_li@uml.edu</a></p>
-          <p>LinkedIn: <a href="https://www.linkedin.com/in/your-username/" target="_blank" rel="noopener">LinkedIn Profile</a></p>
-          <p>GitHub: <a href="https://graeme-lee.github.io/haodong.github.io/" target="_blank" rel="noopener">GitHub Profile</a></p>
+          <p>LinkedIn: <a href="#" aria-label="Add your LinkedIn URL">Add LinkedIn URL</a></p>
+          <p>GitHub: <a href="https://github.com/Graeme-Lee" target="_blank" rel="noopener">github.com/Graeme-Lee</a><br>Google Scholar: <a href="https://scholar.google.com/citations?user=HIo-Z3YAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar Profile</a></p>
         </div>
       </div>
     </section>
