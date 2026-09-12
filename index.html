@@ -17,6 +17,7 @@
     .navlinks{display:flex;gap:24px;font-size:15px}.navlinks a{color:#424951}
     main{padding:58px 0 72px}
     .hero{display:grid;grid-template-columns:210px 1fr;gap:46px;align-items:start;padding-bottom:42px;border-bottom:1px solid var(--line)}
+    .profile-links{margin-top:18px;display:flex;flex-direction:column;gap:8px;font-size:14px}.profile-links a,.profile-links span{color:#555d66}.profile-links i{width:20px;color:#374151;text-align:center;margin-right:7px}.profile-links a:hover{color:var(--link);text-decoration:none}
     .portrait{width:190px;height:190px;object-fit:cover;border-radius:4px;display:block;background:var(--soft)}
     h1,h2,h3{font-family:Georgia,"Times New Roman",serif;color:#172333}
     h1{font-size:42px;line-height:1.15;margin:0 0 8px}.role{font-size:19px;margin:0 0 5px}.affil{color:var(--muted);margin:0 0 18px}
@@ -33,19 +34,26 @@
     footer{padding:28px 0 44px;color:var(--muted);font-size:14px;text-align:center}
     @media(max-width:760px){header{position:static}.navlinks{gap:12px;font-size:13px}.hero{grid-template-columns:1fr;gap:22px}.portrait{width:160px;height:160px}.interests,.two{grid-template-columns:1fr}h1{font-size:36px}.wrap{padding:0 20px}}
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 <body>
-<header><div class="wrap"><nav><a class="brand" href="#top">Haodong Li</a><div class="navlinks"><a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div></nav></div></header>
+<header><div class="wrap"><nav><a class="brand" href="#top">Haodong Li</a><div class="navlinks"><a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#education">Education</a></div></nav></div></header>
 <main id="top"><div class="wrap">
   <section class="hero" id="about">
-    <img class="portrait" src="image.jpg" alt="Haodong Li" />
+    <div><img class="portrait" src="image.jpg" alt="Haodong Li" />
+      <div class="profile-links">
+        <span><i class="fa-solid fa-location-dot"></i>Lowell, MA</span>
+        <a href="mailto:haodong_li@uml.edu"><i class="fa-solid fa-envelope"></i>Email</a>
+        <a href="https://github.com/Graeme-Lee" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
+        <a href="https://scholar.google.com/citations?user=HIo-Z3YAAAAJ&h" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i>Google Scholar</a>
+      </div>
+    </div>
     <div>
       <h1>Haodong Li</h1>
       <p class="role">Doctoral Candidate in Electrical Engineering</p>
       <p class="affil">University of Massachusetts Lowell · Advisor: Prof. Hengyong Yu</p>
       <p class="focus">Medical AI · Multimodal Representation Learning · Generative AI · Medical Image Understanding</p>
       <p class="lead">I develop AI methods for medical imaging and multimodal patient data. My doctoral research has focused on physics-informed generative AI for CT reconstruction, and my current work is expanding toward multimodal representation learning, 3D vision-language grounding, and trustworthy medical AI for disease understanding and clinical decision support.</p>
-      <div class="links"><a href="https://scholar.google.com/citations?user=HIo-Z3YAAAAJ&h" target="_blank" rel="noopener">Google Scholar</a><a href="https://github.com/Graeme-Lee" target="_blank" rel="noopener">GitHub</a><a href="mailto:haodong_li@uml.edu">Email</a></div>
     </div>
   </section>
 
@@ -65,25 +73,26 @@
 
   <section>
     <h2>Featured Research</h2>
-    <div class="project"><h3>ReXGroundingCT — Multimodal 3D Medical Image Grounding</h3><div class="meta">Team Lead · 7-person research team · Manuscript in preparation</div><p>Developing and fine-tuning multimodal models that connect free-text radiological findings with localized volumetric evidence in 3D CT, with emphasis on representation learning, image-text grounding, and clinically faithful localization.</p><div class="tags">Multimodal Learning · 3D Medical AI · Vision-Language Grounding · CT</div></div>
-    <div class="project"><h3>Clinical Metadata-Guided Limited-Angle CT</h3><div class="meta">First Author · IEEE Transactions on Medical Imaging · Accepted</div><p>Integrating clinical metadata and LLM-derived semantic representations with diffusion-based CT reconstruction while enforcing physics-based measurement consistency.</p><div class="tags">Clinical Semantics · Diffusion · Limited-Angle CT · Trustworthy AI</div></div>
-    <div class="project"><h3>Multimodal Endoscopy Video-to-Report Generation</h3><div class="meta">Research Assistant · Manuscript in preparation</div><p>Developing hierarchical visual-temporal representations that connect frame-level findings, procedural events, and video-level clinical context for evidence-grounded report generation.</p><div class="tags">Video Understanding · Temporal Representation · Multimodal Generation</div></div>
     <div class="project"><h3>CDPIR — Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction</h3><div class="meta">First Author · IEEE Transactions on Medical Imaging · 2026</div><p>A physics-informed generative reconstruction framework combining diffusion-transformer priors with measurement-consistent iterative reconstruction for robust sparse-view CT under distribution shifts.</p><div class="actions"><a href="https://www.arxiv.org/abs/2509.13576" target="_blank" rel="noopener">arXiv</a><a href="https://github.com/Graeme-Lee/CDPIR" target="_blank" rel="noopener">Official Code</a></div><div class="tags">Diffusion Transformer · Sparse-View CT · OOD Robustness · Inverse Problems</div></div>
+    <div class="project"><h3>Decoupled Posterior Correction for Diffusion-Based Medical Inverse Problems</h3><div class="meta">First Author · Submitted to WACV 2027</div><p>Developing a physics-aware diffusion inverse framework that separates learned prior formation from measurement-driven posterior correction for severely ill-posed medical reconstruction, including sparse/limited-angle CT and accelerated MRI.</p><div class="tags">Diffusion Models · Posterior Correction · CT/MRI · Physics-Informed AI</div></div>
+    <div class="project"><h3>ReXGroundingCT — Multimodal 3D Medical Image Grounding</h3><div class="meta">Team Lead · 7-person research team · Manuscript in preparation</div><p>Developing and fine-tuning multimodal models that connect free-text radiological findings with localized volumetric evidence in 3D CT, with emphasis on representation learning, image-text grounding, and clinically faithful localization.</p><div class="actions"><a href="https://rexrank.ai/ReXGroundingCT/challenge.html" target="_blank" rel="noopener">Challenge Website</a></div><div class="tags">Multimodal Learning · 3D Medical AI · Vision-Language Grounding · CT</div></div>
+    <div class="project"><h3>Multimodal Endoscopy Video-to-Report Generation</h3><div class="meta">Research Assistant · Manuscript in preparation</div><p>Developing hierarchical visual-temporal representations that connect frame-level findings, procedural events, and video-level clinical context for evidence-grounded report generation.</p><div class="tags">Video Understanding · Temporal Representation · Multimodal Generation</div></div>
   </section>
 
   <section id="publications">
     <h2>Selected Publications</h2>
     <div class="pub"><div class="pub-title">Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT <span class="badge">First Author</span></div><div><strong>Haodong Li</strong>, Shuo Han, Haiyang Mao, Yu Shi, Changsheng Fang, Jianjia Zhang, Weiwen Wu, Hengyong Yu</div><div class="venue">IEEE Transactions on Medical Imaging, 2026.</div><div class="actions"><a href="https://www.arxiv.org/abs/2509.13576" target="_blank" rel="noopener">arXiv</a><a href="https://github.com/Graeme-Lee/CDPIR" target="_blank" rel="noopener">Official Code</a></div></div>
-    <div class="pub"><div class="pub-title">Clinical Metadata-Guided Limited-Angle CT <span class="badge">First Author</span></div><div><strong>Haodong Li</strong>, et al.</div><div class="venue">IEEE Transactions on Medical Imaging, 2026. Accepted.</div></div>
-    <div class="pub"><div class="pub-title">Decoupled Posterior Correction for Diffusion-Based Medical Inverse Problems <span class="badge">First Author</span></div><div><strong>Haodong Li</strong>, et al.</div><div class="venue">Manuscript / conference submission, 2026.</div></div>
+    <div class="pub"><div class="pub-title">Decoupled Posterior Correction for Diffusion-Based Medical Inverse Problems <span class="badge">First Author</span></div><div><strong>Haodong Li</strong>, et al.</div><div class="venue">Submitted to WACV 2027.</div></div>
+    <div class="pub"><div class="pub-title">Clinical Metadata-Guided Limited-Angle CT</div><div>Co-author: <strong>Haodong Li</strong>, et al.</div><div class="venue">IEEE Transactions on Medical Imaging, 2026. Accepted.</div><div class="small">Contributed through research discussions and feedback.</div></div>
   </section>
 
-  <section id="experience">
-    <h2>Experience & Education</h2>
-    <div class="two"><div><h3>Research Experience</h3><p><strong>Imaging and Informatics Lab, UMass Lowell</strong><br><span class="small">Research Assistant · 2023–Present</span></p><p><strong>Intelligent Critical Care Center, University of Florida</strong><br><span class="small">Research Assistant · 2023</span></p><p><strong>COVISS Lab, University of Florida</strong><br><span class="small">Research Assistant · 2022–2023</span></p></div><div><h3>Education</h3><p><strong>University of Massachusetts Lowell</strong><br>Doctoral Candidate (D.Eng.), Electrical Engineering<br><span class="small">Expected May 2027 · Advisor: Prof. Hengyong Yu</span></p><p><strong>University of Florida</strong><br>M.S., Electrical and Computer Engineering · 2023</p><p><strong>Xidian University</strong><br>B.Eng., Electronic and Information Engineering · 2021</p></div></div>
+  <section id="education">
+    <h2>Education</h2>
+    <p><strong>University of Massachusetts Lowell</strong><br>Doctoral Candidate (D.Eng.) in Electrical Engineering <span class="small">· Expected May 2027</span><br><span class="small">Advisor: Prof. Hengyong Yu (FIEEE, FAAPM, FAIMBE)</span></p>
+    <p><strong>University of Florida</strong><br>M.S. in Electrical and Computer Engineering <span class="small">· 2023</span></p>
+    <p><strong>Xidian University</strong><br>B.Eng. in Electronic and Information Engineering <span class="small">· 2021</span></p>
   </section>
 
-  <section id="contact"><h2>Contact</h2><p>Email: <a href="mailto:haodong_li@uml.edu">haodong_li@uml.edu</a></p><p><a href="https://scholar.google.com/citations?user=HIo-Z3YAAAAJ&h" target="_blank" rel="noopener">Google Scholar</a> · <a href="https://github.com/Graeme-Lee" target="_blank" rel="noopener">GitHub</a></p></section>
 </div></main>
 <footer><div class="wrap">© <span id="year"></span> Haodong Li</div></footer>
 <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
